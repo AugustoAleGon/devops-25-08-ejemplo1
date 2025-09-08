@@ -77,7 +77,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
 
         it('debería mostrar cada usuario objetivo con su texto correspondiente', () => {
             const userTexts: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-text'));
-            
+
             expect(userTexts[0].nativeElement.textContent.trim()).toBe('Migrantes en proceso de regularización');
             expect(userTexts[1].nativeElement.textContent.trim()).toBe('Personas con baja alfabetización digital');
             expect(userTexts[2].nativeElement.textContent.trim()).toBe('Trabajadores informales');
@@ -89,7 +89,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar iconos de verificación para cada usuario objetivo', () => {
             const userIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-icon'));
             expect(userIcons.length).toBe(6);
-            
+
             userIcons.forEach(icon => {
                 expect(icon.nativeElement.textContent.trim()).toBe('✓');
             });
@@ -111,11 +111,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de seguridad', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const securityFeature = featureItems[0];
-            
+
             const icon = securityFeature.query(By.css('.feature-icon'));
             const title = securityFeature.query(By.css('.feature-title'));
             const description = securityFeature.query(By.css('.feature-description'));
-            
+
             expect(icon.nativeElement.textContent.trim()).toBe('🔒');
             expect(title.nativeElement.textContent.trim()).toBe('Seguro y Confiable');
             expect(description.nativeElement.textContent.trim()).toBe('Tus datos están protegidos con la más alta seguridad');
@@ -124,11 +124,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de facilidad de uso', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const usabilityFeature = featureItems[1];
-            
+
             const icon = usabilityFeature.query(By.css('.feature-icon'));
             const title = usabilityFeature.query(By.css('.feature-title'));
             const description = usabilityFeature.query(By.css('.feature-description'));
-            
+
             expect(icon.nativeElement.textContent.trim()).toBe('📱');
             expect(title.nativeElement.textContent.trim()).toBe('Fácil de Usar');
             expect(description.nativeElement.textContent.trim()).toBe('Diseñado para ser simple y accesible para todos');
@@ -137,11 +137,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de soporte personalizado', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const supportFeature = featureItems[2];
-            
+
             const icon = supportFeature.query(By.css('.feature-icon'));
             const title = supportFeature.query(By.css('.feature-title'));
             const description = supportFeature.query(By.css('.feature-description'));
-            
+
             expect(icon.nativeElement.textContent.trim()).toBe('🤝');
             expect(title.nativeElement.textContent.trim()).toBe('Soporte Personalizado');
             expect(description.nativeElement.textContent.trim()).toBe('Asistencia disponible cuando la necesites');
@@ -158,7 +158,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
 
         it('debería tener descripción para el botón de modo asistido', () => {
             const assistedModeDescription: DebugElement = fixture.debugElement.query(By.css('#assisted-mode-description'));
-            
+
             expect(assistedModeDescription).toBeTruthy();
             expect(assistedModeDescription.nativeElement.textContent.trim()).toBe('Obtén ayuda adicional durante el proceso');
         });
@@ -170,7 +170,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const welcomeIntro: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="welcome-heading"]'));
             const targetUsers: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="target-users-heading"]'));
             const features: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="features-heading"]'));
-            
+
             expect(welcomeIntro).toBeTruthy();
             expect(targetUsers).toBeTruthy();
             expect(features).toBeTruthy();
@@ -180,7 +180,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const welcomeHeading: DebugElement = fixture.debugElement.query(By.css('#welcome-heading'));
             const targetUsersHeading: DebugElement = fixture.debugElement.query(By.css('#target-users-heading'));
             const featuresHeading: DebugElement = fixture.debugElement.query(By.css('#features-heading'));
-            
+
             expect(welcomeHeading).toBeTruthy();
             expect(targetUsersHeading).toBeTruthy();
             expect(featuresHeading).toBeTruthy();
@@ -189,14 +189,14 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería tener atributos aria-hidden en iconos decorativos', () => {
             const userIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-icon[aria-hidden="true"]'));
             const featureIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-icon[aria-hidden="true"]'));
-            
+
             expect(userIcons.length).toBe(6);
             expect(featureIcons.length).toBe(3);
         });
 
         it('debería tener atributos aria-describedby en el botón de acción', () => {
             const assistedModeButton: DebugElement = fixture.debugElement.query(By.css('a[aria-describedby="assisted-mode-description"]'));
-            
+
             expect(assistedModeButton).toBeTruthy();
         });
 
@@ -219,7 +219,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const container: DebugElement = fixture.debugElement.query(By.css('.container-sm'));
             const header: DebugElement = fixture.debugElement.query(By.css('.welcome-header'));
             const main: DebugElement = fixture.debugElement.query(By.css('.welcome-content'));
-            
+
             expect(welcomePage).toBeTruthy();
             expect(container).toBeTruthy();
             expect(header).toBeTruthy();
@@ -232,7 +232,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const targetUsers: DebugElement = fixture.debugElement.query(By.css('.welcome-target-users'));
             const actions: DebugElement = fixture.debugElement.query(By.css('.welcome-actions'));
             const features: DebugElement = fixture.debugElement.query(By.css('.welcome-features'));
-            
+
             expect(logo).toBeTruthy();
             expect(intro).toBeTruthy();
             expect(targetUsers).toBeTruthy();
@@ -243,7 +243,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería tener la estructura correcta de botones', () => {
             const buttons: DebugElement[] = fixture.debugElement.queryAll(By.css('.welcome-buttons .btn'));
             expect(buttons.length).toBe(2);
-            
+
             buttons.forEach(button => {
                 expect(button.nativeElement.classList.contains('btn--large')).toBe(true);
                 expect(button.nativeElement.classList.contains('btn--full-width')).toBe(true);
@@ -258,10 +258,10 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             // Simular cambio en los datos
             component.targetUsers = ['Usuario 1', 'Usuario 2', 'Usuario 3'];
             fixture.detectChanges();
-            
+
             const userItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-item'));
             expect(userItems.length).toBe(3);
-            
+
             const userTexts: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-text'));
             expect(userTexts[0].nativeElement.textContent.trim()).toBe('Usuario 1');
             expect(userTexts[1].nativeElement.textContent.trim()).toBe('Usuario 2');
@@ -271,7 +271,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería manejar lista vacía de usuarios objetivo', () => {
             component.targetUsers = [];
             fixture.detectChanges();
-            
+
             const userItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-item'));
             expect(userItems.length).toBe(0);
         });
