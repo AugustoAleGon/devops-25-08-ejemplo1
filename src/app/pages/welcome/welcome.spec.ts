@@ -96,6 +96,70 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         });
     });
 
+    // Pruebas de la sección de educación financiera (HU-008)
+    describe('Sección de educación financiera', () => {
+        it('debería mostrar el título de educación financiera', () => {
+            const educationHeading: DebugElement = fixture.debugElement.query(By.css('#education-heading'));
+            expect(educationHeading.nativeElement.textContent.trim()).toBe('Aprende sobre finanzas personales');
+        });
+
+        it('debería mostrar la descripción de educación financiera', () => {
+            const educationDescription: DebugElement = fixture.debugElement.query(By.css('.education-description'));
+            expect(educationDescription.nativeElement.textContent.trim()).toBe('Mejora tu conocimiento financiero con lecciones simples y prácticas');
+        });
+
+        it('debería mostrar el dashboard de progreso educativo', () => {
+            const progressDashboard: DebugElement = fixture.debugElement.query(By.css('.education-dashboard'));
+            expect(progressDashboard).toBeTruthy();
+        });
+
+        it('debería mostrar el círculo de progreso general', () => {
+            const progressCircle: DebugElement = fixture.debugElement.query(By.css('.progress-circle'));
+            expect(progressCircle).toBeTruthy();
+
+            const progressPercentage: DebugElement = fixture.debugElement.query(By.css('.progress-percentage'));
+            expect(progressPercentage.nativeElement.textContent.trim()).toBe('25%');
+        });
+
+        it('debería mostrar las estadísticas de progreso', () => {
+            const statItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.stat-item'));
+            expect(statItems.length).toBe(2);
+
+            const statNumbers: DebugElement[] = fixture.debugElement.queryAll(By.css('.stat-number'));
+            expect(statNumbers[0].nativeElement.textContent.trim()).toBe('3');
+            expect(statNumbers[1].nativeElement.textContent.trim()).toBe('12');
+        });
+
+        it('debería mostrar las categorías de aprendizaje', () => {
+            const categoriesHeading: DebugElement = fixture.debugElement.query(By.css('#categories-heading'));
+            expect(categoriesHeading.nativeElement.textContent.trim()).toBe('Categorías de aprendizaje');
+
+            const categoryCards: DebugElement[] = fixture.debugElement.queryAll(By.css('.category-card'));
+            expect(categoryCards.length).toBe(3);
+        });
+
+        it('debería mostrar la categoría básica con progreso', () => {
+            const categoryCards: DebugElement[] = fixture.debugElement.queryAll(By.css('.category-card'));
+            const basicCategory = categoryCards[0];
+
+            const title = basicCategory.query(By.css('.category-title'));
+            const description = basicCategory.query(By.css('.category-description'));
+            const progressText = basicCategory.query(By.css('.progress-text'));
+
+            expect(title.nativeElement.textContent.trim()).toBe('Básico');
+            expect(description.nativeElement.textContent.trim()).toBe('Conceptos fundamentales para empezar');
+            expect(progressText.nativeElement.textContent.trim()).toBe('4 de 10 lecciones');
+        });
+
+        it('debería mostrar las recomendaciones personalizadas', () => {
+            const recommendationsHeading: DebugElement = fixture.debugElement.query(By.css('#recommendations-heading'));
+            expect(recommendationsHeading.nativeElement.textContent.trim()).toBe('Recomendado para ti');
+
+            const recommendationCard: DebugElement = fixture.debugElement.query(By.css('.recommendation-card'));
+            expect(recommendationCard).toBeTruthy();
+        });
+    });
+
     // Pruebas de características (relacionado con educación financiera)
     describe('Sección de características de Bohío', () => {
         it('debería mostrar el título de características', () => {
@@ -162,6 +226,37 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             expect(assistedModeDescription).toBeTruthy();
             expect(assistedModeDescription.nativeElement.textContent.trim()).toBe('Obtén ayuda adicional durante el proceso');
         });
+
+        // HU-008: Pruebas para el botón de acceso al módulo de educación
+        it('debería tener un botón para acceder al módulo de educación', () => {
+            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+            expect(educationAccessButton).toBeTruthy();
+            expect(educationAccessButton.nativeElement.textContent.trim()).toBe('Acceder al Módulo de Educación');
+        });
+
+        it('debería tener descripción para el botón de acceso al módulo de educación', () => {
+            const educationAccessDescription: DebugElement = fixture.debugElement.query(By.css('#education-access-description'));
+
+            expect(educationAccessDescription).toBeTruthy();
+            expect(educationAccessDescription.nativeElement.textContent.trim()).toBe('Explora todas las lecciones y herramientas educativas');
+        });
+
+        it('debería tener las clases CSS correctas en el botón de educación', () => {
+            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+
+            expect(educationAccessButton.nativeElement.classList.contains('btn')).toBe(true);
+            expect(educationAccessButton.nativeElement.classList.contains('btn--secondary')).toBe(true);
+            expect(educationAccessButton.nativeElement.classList.contains('btn--large')).toBe(true);
+            expect(educationAccessButton.nativeElement.classList.contains('btn--full-width')).toBe(true);
+            expect(educationAccessButton.nativeElement.classList.contains('touch-target')).toBe(true);
+        });
+
+        it('debería tener atributos de accesibilidad en el botón de educación', () => {
+            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+
+            expect(educationAccessButton.nativeElement.getAttribute('role')).toBe('button');
+            expect(educationAccessButton.nativeElement.getAttribute('aria-describedby')).toBe('education-access-description');
+        });
     });
 
     // Pruebas de accesibilidad (WCAG 2.1)
@@ -208,7 +303,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
 
         it('debería tener atributos role en los botones', () => {
             const buttons: DebugElement[] = fixture.debugElement.queryAll(By.css('a[role="button"]'));
-            expect(buttons.length).toBe(2);
+            expect(buttons.length).toBe(3);
         });
     });
 
@@ -240,7 +335,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             expect(features).toBeTruthy();
         });
 
-        it('debería tener la estructura correcta de botones', () => {
+        it('debería tener la estructura correcta de botones en welcome-buttons', () => {
             const buttons: DebugElement[] = fixture.debugElement.queryAll(By.css('.welcome-buttons .btn'));
             expect(buttons.length).toBe(2);
 
@@ -249,6 +344,14 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
                 expect(button.nativeElement.classList.contains('btn--full-width')).toBe(true);
                 expect(button.nativeElement.classList.contains('touch-target')).toBe(true);
             });
+        });
+
+        it('debería tener la estructura correcta del botón de educación', () => {
+            const educationButton: DebugElement = fixture.debugElement.query(By.css('.education-access .btn'));
+            expect(educationButton).toBeTruthy();
+            expect(educationButton.nativeElement.classList.contains('btn--large')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('btn--full-width')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('touch-target')).toBe(true);
         });
     });
 
