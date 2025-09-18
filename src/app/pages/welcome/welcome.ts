@@ -1,6 +1,6 @@
 // Componente de bienvenida - Bohío
 import { Component } from '@angular/core';
-import { RouterLink, Router } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,13 +22,4 @@ export class WelcomeComponent {
     'Adultos mayores',
     'Personas con discapacidades visuales'
   ];
-
-  constructor(private router: Router) {}
-
-  // Navegar al módulo de educación con filtro por categoría
-  navigateToEducation(category: string): void {
-    this.router.navigate(['/educacion'], {
-      queryParams: { categoria: category }
-    });
-  }
 }

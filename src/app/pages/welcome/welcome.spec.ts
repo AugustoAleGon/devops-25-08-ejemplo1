@@ -77,7 +77,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
 
         it('debería mostrar cada usuario objetivo con su texto correspondiente', () => {
             const userTexts: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-text'));
-
+            
             expect(userTexts[0].nativeElement.textContent.trim()).toBe('Migrantes en proceso de regularización');
             expect(userTexts[1].nativeElement.textContent.trim()).toBe('Personas con baja alfabetización digital');
             expect(userTexts[2].nativeElement.textContent.trim()).toBe('Trabajadores informales');
@@ -89,74 +89,10 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar iconos de verificación para cada usuario objetivo', () => {
             const userIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-icon'));
             expect(userIcons.length).toBe(6);
-
+            
             userIcons.forEach(icon => {
                 expect(icon.nativeElement.textContent.trim()).toBe('✓');
             });
-        });
-    });
-
-    // Pruebas de la sección de educación financiera (HU-008)
-    describe('Sección de educación financiera', () => {
-        it('debería mostrar el título de educación financiera', () => {
-            const educationHeading: DebugElement = fixture.debugElement.query(By.css('#education-heading'));
-            expect(educationHeading.nativeElement.textContent.trim()).toBe('Aprende sobre finanzas personales');
-        });
-
-        it('debería mostrar la descripción de educación financiera', () => {
-            const educationDescription: DebugElement = fixture.debugElement.query(By.css('.education-description'));
-            expect(educationDescription.nativeElement.textContent.trim()).toBe('Mejora tu conocimiento financiero con lecciones simples y prácticas');
-        });
-
-        it('debería mostrar el dashboard de progreso educativo', () => {
-            const progressDashboard: DebugElement = fixture.debugElement.query(By.css('.education-dashboard'));
-            expect(progressDashboard).toBeTruthy();
-        });
-
-        it('debería mostrar el círculo de progreso general', () => {
-            const progressCircle: DebugElement = fixture.debugElement.query(By.css('.progress-circle'));
-            expect(progressCircle).toBeTruthy();
-
-            const progressPercentage: DebugElement = fixture.debugElement.query(By.css('.progress-percentage'));
-            expect(progressPercentage.nativeElement.textContent.trim()).toBe('25%');
-        });
-
-        it('debería mostrar las estadísticas de progreso', () => {
-            const statItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.stat-item'));
-            expect(statItems.length).toBe(2);
-
-            const statNumbers: DebugElement[] = fixture.debugElement.queryAll(By.css('.stat-number'));
-            expect(statNumbers[0].nativeElement.textContent.trim()).toBe('3');
-            expect(statNumbers[1].nativeElement.textContent.trim()).toBe('12');
-        });
-
-        it('debería mostrar las categorías de aprendizaje', () => {
-            const categoriesHeading: DebugElement = fixture.debugElement.query(By.css('#categories-heading'));
-            expect(categoriesHeading.nativeElement.textContent.trim()).toBe('Categorías de aprendizaje');
-
-            const categoryCards: DebugElement[] = fixture.debugElement.queryAll(By.css('.category-card'));
-            expect(categoryCards.length).toBe(3);
-        });
-
-        it('debería mostrar la categoría básica con progreso', () => {
-            const categoryCards: DebugElement[] = fixture.debugElement.queryAll(By.css('.category-card'));
-            const basicCategory = categoryCards[0];
-
-            const title = basicCategory.query(By.css('.category-title'));
-            const description = basicCategory.query(By.css('.category-description'));
-            const progressText = basicCategory.query(By.css('.progress-text'));
-
-            expect(title.nativeElement.textContent.trim()).toBe('Básico');
-            expect(description.nativeElement.textContent.trim()).toBe('Conceptos fundamentales para empezar');
-            expect(progressText.nativeElement.textContent.trim()).toBe('4 de 10 lecciones');
-        });
-
-        it('debería mostrar las recomendaciones personalizadas', () => {
-            const recommendationsHeading: DebugElement = fixture.debugElement.query(By.css('#recommendations-heading'));
-            expect(recommendationsHeading.nativeElement.textContent.trim()).toBe('Recomendado para ti');
-
-            const recommendationCard: DebugElement = fixture.debugElement.query(By.css('.recommendation-card'));
-            expect(recommendationCard).toBeTruthy();
         });
     });
 
@@ -175,11 +111,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de seguridad', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const securityFeature = featureItems[0];
-
+            
             const icon = securityFeature.query(By.css('.feature-icon'));
             const title = securityFeature.query(By.css('.feature-title'));
             const description = securityFeature.query(By.css('.feature-description'));
-
+            
             expect(icon.nativeElement.textContent.trim()).toBe('🔒');
             expect(title.nativeElement.textContent.trim()).toBe('Seguro y Confiable');
             expect(description.nativeElement.textContent.trim()).toBe('Tus datos están protegidos con la más alta seguridad');
@@ -188,11 +124,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de facilidad de uso', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const usabilityFeature = featureItems[1];
-
+            
             const icon = usabilityFeature.query(By.css('.feature-icon'));
             const title = usabilityFeature.query(By.css('.feature-title'));
             const description = usabilityFeature.query(By.css('.feature-description'));
-
+            
             expect(icon.nativeElement.textContent.trim()).toBe('📱');
             expect(title.nativeElement.textContent.trim()).toBe('Fácil de Usar');
             expect(description.nativeElement.textContent.trim()).toBe('Diseñado para ser simple y accesible para todos');
@@ -201,11 +137,11 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería mostrar la característica de soporte personalizado', () => {
             const featureItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-item'));
             const supportFeature = featureItems[2];
-
+            
             const icon = supportFeature.query(By.css('.feature-icon'));
             const title = supportFeature.query(By.css('.feature-title'));
             const description = supportFeature.query(By.css('.feature-description'));
-
+            
             expect(icon.nativeElement.textContent.trim()).toBe('🤝');
             expect(title.nativeElement.textContent.trim()).toBe('Soporte Personalizado');
             expect(description.nativeElement.textContent.trim()).toBe('Asistencia disponible cuando la necesites');
@@ -222,40 +158,40 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
 
         it('debería tener descripción para el botón de modo asistido', () => {
             const assistedModeDescription: DebugElement = fixture.debugElement.query(By.css('#assisted-mode-description'));
-
+            
             expect(assistedModeDescription).toBeTruthy();
             expect(assistedModeDescription.nativeElement.textContent.trim()).toBe('Obtén ayuda adicional durante el proceso');
         });
 
-        // HU-008: Pruebas para el botón de acceso al módulo de educación
-        it('debería tener un botón para acceder al módulo de educación', () => {
-            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
-            expect(educationAccessButton).toBeTruthy();
-            expect(educationAccessButton.nativeElement.textContent.trim()).toBe('Acceder al Módulo de Educación');
+        // HU-008: Acceso al Módulo de Educación
+        it('debería tener un botón para acceder al módulo de educación financiera', () => {
+            const educationButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+            expect(educationButton).toBeTruthy();
+            expect(educationButton.nativeElement.textContent.trim()).toBe('Educación Financiera');
         });
 
-        it('debería tener descripción para el botón de acceso al módulo de educación', () => {
-            const educationAccessDescription: DebugElement = fixture.debugElement.query(By.css('#education-access-description'));
-
-            expect(educationAccessDescription).toBeTruthy();
-            expect(educationAccessDescription.nativeElement.textContent.trim()).toBe('Explora todas las lecciones y herramientas educativas');
+        it('debería tener descripción para el botón de educación financiera', () => {
+            const educationDescription: DebugElement = fixture.debugElement.query(By.css('#education-description'));
+            
+            expect(educationDescription).toBeTruthy();
+            expect(educationDescription.nativeElement.textContent.trim()).toBe('Aprende sobre finanzas personales de forma simple');
         });
 
         it('debería tener las clases CSS correctas en el botón de educación', () => {
-            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
-
-            expect(educationAccessButton.nativeElement.classList.contains('btn')).toBe(true);
-            expect(educationAccessButton.nativeElement.classList.contains('btn--secondary')).toBe(true);
-            expect(educationAccessButton.nativeElement.classList.contains('btn--large')).toBe(true);
-            expect(educationAccessButton.nativeElement.classList.contains('btn--full-width')).toBe(true);
-            expect(educationAccessButton.nativeElement.classList.contains('touch-target')).toBe(true);
+            const educationButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+            
+            expect(educationButton.nativeElement.classList.contains('btn')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('btn--tertiary')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('btn--large')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('btn--full-width')).toBe(true);
+            expect(educationButton.nativeElement.classList.contains('touch-target')).toBe(true);
         });
 
         it('debería tener atributos de accesibilidad en el botón de educación', () => {
-            const educationAccessButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
-
-            expect(educationAccessButton.nativeElement.getAttribute('role')).toBe('button');
-            expect(educationAccessButton.nativeElement.getAttribute('aria-describedby')).toBe('education-access-description');
+            const educationButton: DebugElement = fixture.debugElement.query(By.css('a[routerLink="/educacion"]'));
+            
+            expect(educationButton.nativeElement.getAttribute('role')).toBe('button');
+            expect(educationButton.nativeElement.getAttribute('aria-describedby')).toBe('education-description');
         });
     });
 
@@ -265,7 +201,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const welcomeIntro: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="welcome-heading"]'));
             const targetUsers: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="target-users-heading"]'));
             const features: DebugElement = fixture.debugElement.query(By.css('section[aria-labelledby="features-heading"]'));
-
+            
             expect(welcomeIntro).toBeTruthy();
             expect(targetUsers).toBeTruthy();
             expect(features).toBeTruthy();
@@ -275,7 +211,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const welcomeHeading: DebugElement = fixture.debugElement.query(By.css('#welcome-heading'));
             const targetUsersHeading: DebugElement = fixture.debugElement.query(By.css('#target-users-heading'));
             const featuresHeading: DebugElement = fixture.debugElement.query(By.css('#features-heading'));
-
+            
             expect(welcomeHeading).toBeTruthy();
             expect(targetUsersHeading).toBeTruthy();
             expect(featuresHeading).toBeTruthy();
@@ -284,14 +220,14 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería tener atributos aria-hidden en iconos decorativos', () => {
             const userIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-icon[aria-hidden="true"]'));
             const featureIcons: DebugElement[] = fixture.debugElement.queryAll(By.css('.feature-icon[aria-hidden="true"]'));
-
+            
             expect(userIcons.length).toBe(6);
             expect(featureIcons.length).toBe(3);
         });
 
         it('debería tener atributos aria-describedby en el botón de acción', () => {
             const assistedModeButton: DebugElement = fixture.debugElement.query(By.css('a[aria-describedby="assisted-mode-description"]'));
-
+            
             expect(assistedModeButton).toBeTruthy();
         });
 
@@ -314,7 +250,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const container: DebugElement = fixture.debugElement.query(By.css('.container-sm'));
             const header: DebugElement = fixture.debugElement.query(By.css('.welcome-header'));
             const main: DebugElement = fixture.debugElement.query(By.css('.welcome-content'));
-
+            
             expect(welcomePage).toBeTruthy();
             expect(container).toBeTruthy();
             expect(header).toBeTruthy();
@@ -327,7 +263,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             const targetUsers: DebugElement = fixture.debugElement.query(By.css('.welcome-target-users'));
             const actions: DebugElement = fixture.debugElement.query(By.css('.welcome-actions'));
             const features: DebugElement = fixture.debugElement.query(By.css('.welcome-features'));
-
+            
             expect(logo).toBeTruthy();
             expect(intro).toBeTruthy();
             expect(targetUsers).toBeTruthy();
@@ -335,23 +271,15 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             expect(features).toBeTruthy();
         });
 
-        it('debería tener la estructura correcta de botones en welcome-buttons', () => {
+        it('debería tener la estructura correcta de botones', () => {
             const buttons: DebugElement[] = fixture.debugElement.queryAll(By.css('.welcome-buttons .btn'));
-            expect(buttons.length).toBe(2);
-
+            expect(buttons.length).toBe(3);
+            
             buttons.forEach(button => {
                 expect(button.nativeElement.classList.contains('btn--large')).toBe(true);
                 expect(button.nativeElement.classList.contains('btn--full-width')).toBe(true);
                 expect(button.nativeElement.classList.contains('touch-target')).toBe(true);
             });
-        });
-
-        it('debería tener la estructura correcta del botón de educación', () => {
-            const educationButton: DebugElement = fixture.debugElement.query(By.css('.education-access .btn'));
-            expect(educationButton).toBeTruthy();
-            expect(educationButton.nativeElement.classList.contains('btn--large')).toBe(true);
-            expect(educationButton.nativeElement.classList.contains('btn--full-width')).toBe(true);
-            expect(educationButton.nativeElement.classList.contains('touch-target')).toBe(true);
         });
     });
 
@@ -361,10 +289,10 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
             // Simular cambio en los datos
             component.targetUsers = ['Usuario 1', 'Usuario 2', 'Usuario 3'];
             fixture.detectChanges();
-
+            
             const userItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-item'));
             expect(userItems.length).toBe(3);
-
+            
             const userTexts: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-text'));
             expect(userTexts[0].nativeElement.textContent.trim()).toBe('Usuario 1');
             expect(userTexts[1].nativeElement.textContent.trim()).toBe('Usuario 2');
@@ -374,7 +302,7 @@ describe('WelcomeComponent - HU-008: Acceso al Módulo de Educación', () => {
         it('debería manejar lista vacía de usuarios objetivo', () => {
             component.targetUsers = [];
             fixture.detectChanges();
-
+            
             const userItems: DebugElement[] = fixture.debugElement.queryAll(By.css('.target-user-item'));
             expect(userItems.length).toBe(0);
         });

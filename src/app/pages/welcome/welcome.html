@@ -14,7 +14,7 @@
       <!-- Sección de Bienvenida -->
       <section class="welcome-intro" aria-labelledby="welcome-heading">
         <h2 id="welcome-heading" class="welcome-heading">
-          Bienvenido a tu nueva oportunidad financiera!?
+          Bienvenido a tu nueva oportunidad financiera
         </h2>
         <p class="welcome-description">
           Crea tu cuenta bancaria de forma simple y segura. Estamos aquí para ayudarte en cada paso del proceso.
@@ -64,140 +64,18 @@
           <p id="assisted-mode-description" class="button-description">
             Obtén ayuda adicional durante el proceso
           </p>
-        </div>
-      </section>
 
-      <!-- Sección de Educación Financiera -->
-      <section class="welcome-education" aria-labelledby="education-heading">
-        <h3 id="education-heading" class="education-heading">
-          Aprende sobre finanzas personales
-        </h3>
-        <p class="education-description">
-          Mejora tu conocimiento financiero con lecciones simples y prácticas
-        </p>
-
-        <!-- Dashboard de Progreso -->
-        <div class="education-dashboard" role="region" aria-labelledby="progress-heading">
-          <h4 id="progress-heading" class="sr-only">Tu progreso educativo</h4>
-          <div class="progress-summary">
-            <div class="progress-circle" role="img" aria-label="Progreso general: 25% completado">
-              <div class="progress-percentage">25%</div>
-              <div class="progress-label">Completado</div>
-            </div>
-            <div class="progress-stats">
-              <div class="stat-item">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Lecciones completadas</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-number">12</span>
-                <span class="stat-label">Lecciones disponibles</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Categorías de Lecciones -->
-        <div class="education-categories" role="region" aria-labelledby="categories-heading">
-          <h4 id="categories-heading" class="categories-heading">
-            Categorías de aprendizaje
-          </h4>
-          <div class="categories-grid">
-            <!-- Nivel Básico -->
-            <div class="category-card" role="button" tabindex="0"
-                 aria-describedby="basic-description"
-                 (click)="navigateToEducation('basico')"
-                 (keydown.enter)="navigateToEducation('basico')"
-                 (keydown.space)="navigateToEducation('basico')">
-              <div class="category-icon" aria-hidden="true">🌱</div>
-              <h5 class="category-title">Básico</h5>
-              <p id="basic-description" class="category-description">
-                Conceptos fundamentales para empezar
-              </p>
-              <div class="category-progress">
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 40%" aria-label="40% completado"></div>
-                </div>
-                <span class="progress-text">4 de 10 lecciones</span>
-              </div>
-            </div>
-
-            <!-- Nivel Intermedio -->
-            <div class="category-card" role="button" tabindex="0"
-                 aria-describedby="intermediate-description"
-                 (click)="navigateToEducation('intermedio')"
-                 (keydown.enter)="navigateToEducation('intermedio')"
-                 (keydown.space)="navigateToEducation('intermedio')">
-              <div class="category-icon" aria-hidden="true">📈</div>
-              <h5 class="category-title">Intermedio</h5>
-              <p id="intermediate-description" class="category-description">
-                Herramientas para mejorar tus finanzas
-              </p>
-              <div class="category-progress">
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 0%" aria-label="0% completado"></div>
-                </div>
-                <span class="progress-text">0 de 8 lecciones</span>
-              </div>
-            </div>
-
-            <!-- Nivel Avanzado -->
-            <div class="category-card" role="button" tabindex="0"
-                 aria-describedby="advanced-description"
-                 (click)="navigateToEducation('avanzado')"
-                 (keydown.enter)="navigateToEducation('avanzado')"
-                 (keydown.space)="navigateToEducation('avanzado')">
-              <div class="category-icon" aria-hidden="true">🎯</div>
-              <h5 class="category-title">Avanzado</h5>
-              <p id="advanced-description" class="category-description">
-                Estrategias para optimizar tu dinero
-              </p>
-              <div class="category-progress">
-                <div class="progress-bar">
-                  <div class="progress-fill" style="width: 0%" aria-label="0% completado"></div>
-                </div>
-                <span class="progress-text">0 de 6 lecciones</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Recomendaciones Personalizadas -->
-        <div class="education-recommendations" role="region" aria-labelledby="recommendations-heading">
-          <h4 id="recommendations-heading" class="recommendations-heading">
-            Recomendado para ti
-          </h4>
-          <div class="recommendation-card">
-            <div class="recommendation-icon" aria-hidden="true">💡</div>
-            <div class="recommendation-content">
-              <h5 class="recommendation-title">¿Qué es una tarjeta de crédito?</h5>
-              <p class="recommendation-description">
-                Aprende los conceptos básicos antes de solicitar tu tarjeta
-              </p>
-              <div class="recommendation-meta">
-                <span class="lesson-duration">3 min</span>
-                <span class="lesson-level">Básico</span>
-              </div>
-            </div>
-            <button class="btn btn--small btn--outline"
-                    aria-label="Comenzar lección: ¿Qué es una tarjeta de crédito?">
-              Comenzar
-            </button>
-          </div>
-        </div>
-
-        <!-- Acceso al Módulo Completo -->
-        <div class="education-access">
+          <!-- Botón Terciario: Educación Financiera -->
           <a
             routerLink="/educacion"
-            class="btn btn--secondary btn--large btn--full-width touch-target"
+            class="btn btn--tertiary btn--large btn--full-width touch-target"
             role="button"
-            aria-describedby="education-access-description"
+            aria-describedby="education-description"
           >
-            <span>Acceder al Módulo de Educación</span>
+            <span>Educación Financiera</span>
           </a>
-          <p id="education-access-description" class="button-description">
-            Explora todas las lecciones y herramientas educativas
+          <p id="education-description" class="button-description">
+            Aprende sobre finanzas personales de forma simple
           </p>
         </div>
       </section>
